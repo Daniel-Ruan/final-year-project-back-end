@@ -1,0 +1,114 @@
+{
+  "kind": "collectionType",
+  "collectionName": "questions",
+  "info": {
+    "singularName": "question",
+    "pluralName": "questions",
+    "displayName": "Question",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "question": {
+      "type": "text"
+    },
+    "a": {
+      "type": "text"
+    },
+    "b": {
+      "type": "text"
+    },
+    "c": {
+      "type": "text"
+    },
+    "d": {
+      "type": "text"
+    },
+    "cover_picture": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "QuestionCategory": {
+      "type": "enumeration",
+      "enum": [
+        "plant",
+        "tree",
+        "flower",
+        "botany",
+        "zoology",
+        "mammal",
+        "birds",
+        "seeds"
+      ]
+    },
+    "book": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::book.book",
+      "inversedBy": "questions"
+    },
+    "state": {
+      "type": "enumeration",
+      "enum": [
+        "Scheduled",
+        "Completed"
+      ],
+      "default": "Scheduled"
+    },
+    "true_answer": {
+      "type": "text"
+    },
+    "practice_records": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::practice-record.practice-record",
+      "mappedBy": "question"
+    },
+    "KeyWord": {
+      "type": "string"
+    },
+    "KeyWordDescription": {
+      "type": "text"
+    },
+    "content_picture": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "dailytasks": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::dailytask.dailytask",
+      "inversedBy": "questions"
+    },
+    "wikiUrl": {
+      "type": "string"
+    },
+    "imageUrl": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

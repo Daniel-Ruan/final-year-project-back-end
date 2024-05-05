@@ -1,0 +1,67 @@
+{
+  "kind": "collectionType",
+  "collectionName": "longtasks",
+  "info": {
+    "singularName": "longtask",
+    "pluralName": "longtasks",
+    "displayName": "Longtask",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "LongTaskName": {
+      "type": "string"
+    },
+    "finish_date": {
+      "type": "date"
+    },
+    "Dailytask": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::dailytask.dailytask",
+      "mappedBy": "Longtask"
+    },
+    "LearningCycleDays": {
+      "type": "integer"
+    },
+    "student": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "longtasks"
+    },
+    "question_decks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::question-deck.question-deck",
+      "mappedBy": "longtask"
+    },
+    "book": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::book.book",
+      "inversedBy": "longtasks"
+    },
+    "create_time": {
+      "type": "date"
+    },
+    "questions_set": {
+      "type": "string"
+    },
+    "CertainDay": {
+      "type": "integer"
+    },
+    "update_time": {
+      "type": "date"
+    },
+    "category": {
+      "type": "string"
+    },
+    "taskProgress": {
+      "type": "integer"
+    }
+  }
+}

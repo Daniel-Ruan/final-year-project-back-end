@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "question_decks",
+  "info": {
+    "singularName": "question-deck",
+    "pluralName": "question-decks",
+    "displayName": "QuestionDeck",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "RepeatCounter": {
+      "type": "integer",
+      "default": 0
+    },
+    "longtask": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::longtask.longtask",
+      "inversedBy": "question_decks"
+    },
+    "question": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::question.question"
+    },
+    "questionStatus": {
+      "type": "integer",
+      "default": 0
+    },
+    "student": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "question_decks"
+    },
+    "write_time": {
+      "type": "date"
+    }
+  }
+}

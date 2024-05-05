@@ -1,0 +1,80 @@
+{
+  "kind": "collectionType",
+  "collectionName": "books",
+  "info": {
+    "singularName": "book",
+    "pluralName": "books",
+    "displayName": "Book",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "b_name": {
+      "type": "string"
+    },
+    "b_category": {
+      "type": "enumeration",
+      "enum": [
+        "Biology",
+        "Physics",
+        "Chemistry"
+      ]
+    },
+    "description": {
+      "type": "text"
+    },
+    "cover_picture": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "content_picture": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "release_date": {
+      "type": "date"
+    },
+    "author": {
+      "type": "text"
+    },
+    "questions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::question.question",
+      "mappedBy": "book"
+    },
+    "longtasks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::longtask.longtask",
+      "mappedBy": "book"
+    },
+    "pdf": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

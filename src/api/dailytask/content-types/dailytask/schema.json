@@ -1,0 +1,63 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dailytasks",
+  "info": {
+    "singularName": "dailytask",
+    "pluralName": "dailytasks",
+    "displayName": "Dailytask",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "DailyTaskName": {
+      "type": "string"
+    },
+    "planned_time": {
+      "type": "date"
+    },
+    "n_questions": {
+      "type": "integer",
+      "default": 10
+    },
+    "questions": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::question.question",
+      "mappedBy": "dailytasks"
+    },
+    "Longtask": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::longtask.longtask",
+      "inversedBy": "Dailytask"
+    },
+    "practice_records": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::practice-record.practice-record",
+      "mappedBy": "dailytask"
+    },
+    "daily_state": {
+      "type": "enumeration",
+      "enum": [
+        "true",
+        "false"
+      ]
+    },
+    "student": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "dailytasks"
+    },
+    "questions_set": {
+      "type": "string"
+    },
+    "accuracy": {
+      "type": "integer"
+    }
+  }
+}

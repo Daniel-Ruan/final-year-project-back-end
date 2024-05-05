@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "practice_records",
+  "info": {
+    "singularName": "practice-record",
+    "pluralName": "practice-records",
+    "displayName": "PracticeRecord",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "true",
+        "false"
+      ]
+    },
+    "dailytask": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::dailytask.dailytask",
+      "inversedBy": "practice_records"
+    },
+    "question": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::question.question",
+      "inversedBy": "practice_records"
+    },
+    "student": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "practice_records"
+    }
+  }
+}
